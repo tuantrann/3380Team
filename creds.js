@@ -9,10 +9,10 @@ const { Pool } = require('pg');
 //#postgres://username:password@hostname:port/database
 
 const pool = new Pool({
-  host: "fanny.db.elephantsql.com",
-  user: "aydcjkbo",
-  password: "GKV6YW6f2jKnjvzYzMN5lyB7sSLiy6bx",
-  database: "aydcjkbo",
+  host: "kashin.db.elephantsql.com",
+  user: "oblployz",
+  password: "Ds4vS4JQWmECJlEz4K78ccucOs8A1mNI",
+  database: "oblployz",
   port: "5432",
 });
 
