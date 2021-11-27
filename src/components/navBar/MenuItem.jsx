@@ -37,6 +37,7 @@ export const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     <Link href={to}>
       <Text 
         fontWeight="bold" 
+        fontSize="1.5rem"
         display="block" 
         color="#62A609"
         _hover={{color: "#BAE885"}}

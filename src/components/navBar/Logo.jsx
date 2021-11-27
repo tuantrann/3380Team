@@ -8,7 +8,7 @@ export default function Logo(props) {
             <Image 
             src={logo} 
             alt="Logo "
-            boxSize="100px"
+            boxSize="110px"
             objectFit="cover"    
             />
         </Link>
