@@ -12,7 +12,6 @@ import { AirCraftInfo } from './pages/AircraftInfo';
 import { CrewMember } from './pages/CrewMember';
 import { FlightInfo } from './pages/FlightInfo';
 import { FlightSummary } from './pages/FlightSummary';
-import { Ticket } from './pages/Ticket';
 
 function App() {
   return (
@@ -20,11 +19,10 @@ function App() {
       <Router>
         <Routes>
             <Route path="/" element={<HomePage />}/>
-            <Route path="/aircraftinfo" element={<AirCraftInfo />} />
-            <Route path="/crewmember" element={<CrewMember />} />
-            <Route path="/flightinfo" element={<FlightInfo/>} />
-            <Route path="/flightsummary" element={< FlightSummary/>} />
-            <Route path="/ticket" element={<Ticket />} />
+            <Route path="/aircraftInfo" element={<AirCraftInfo />} />
+            <Route path="/crewMember" element={<CrewMember />} />
+            <Route path="/flightInfo" element={<FlightInfo/>} />
+            <Route path="/flightSummary" element={< FlightSummary/>} />
             <Route path="*" element={<PageNotFound/>} />
           </Routes>
       </Router>
