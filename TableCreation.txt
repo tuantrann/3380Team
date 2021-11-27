@@ -1,0 +1,110 @@
+DROP TABLE IF EXISTS flight_info;
+DROP TABLE IF EXISTS aircraft_info;
+DROP TABLE IF EXISTS airport;
+DROP TABLE IF EXISTS amenities;
+DROP TABLE IF EXISTS flight_summary;
+DROP TABLE IF EXISTS crew_member;
+DROP TABLE IF EXISTS crew_assigned_flight;
+DROP TABLE IF EXISTS ticket;
+DROP TABLE IF EXISTS refueling_history;
+DROP TABLE IF EXISTS maintenance_history;
+
+CREATE TABLE aircraft_info(
+  	aircraft_code   		VARCHAR(20) PRIMARY KEY NOT NULL,
+        model  				VARCHAR(20)   			,
+	range	   			BIGINT  			
+);
+
+CREATE TABLE airport(
+  	airport_code  			VARCHAR(20) PRIMARY KEY NOT NULL,
+	airport_name  			VARCHAR(50)  		NOT NULL,
+	city  				VARCHAR(20)  		NOT NULL,
+	timezone  			TEXT  			NOT NULL
+);
+
+CREATE TABLE flight_info(
+	flight_id 		 	VARCHAR(20) PRIMARY KEY NOT NULL,
+	aircraft_code		 	VARCHAR(20)	  	NOT NULL,
+	scheduled_departure_time 	TIMESTAMP	   	NOT NULL,
+	scheduled_arrival_time	 	TIMESTAMP	  	NOT NULL,
+	departure_airport_code	 	VARCHAR(20)	 	NOT NULL,
+	arrival_airport_code 	 	VARCHAR(20)	 	NOT NULL,
+	status			 	VARCHAR(10)	 	NOT NULL,
+	departure_gate		 	VARCHAR(10)			,
+	arrival_gate		 	VARCHAR(10)			,
+	baggage_claim		 	VARCHAR(10)			,
+	CONSTRAINT fk_aircraft_code
+		FOREIGN KEY(aircraft_code)
+			REFERENCES aircraft_info(aircraft_code)	
+);
+
+CREATE TABLE amenities(
+	flight_id 		 	VARCHAR(20) PRIMARY KEY NOT NULL,
+	wifi_service  			VARCHAR(10)  			,
+	food_beverage   		VARCHAR(5)  			,
+	movie  				VARCHAR(5)  			
+);
+
+CREATE TABLE flight_summary(
+	flight_id 		 	VARCHAR(20) PRIMARY KEY NOT NULL,
+	number_of_empty_seat   		INT   				,
+	arrival_status  		VARCHAR(20)  		NOT NULL,
+	reason  			VARCHAR(20)  			,
+	accommodation  			VARCHAR(5)  			,
+	cost 				BIGINT
+);
+
+CREATE TABLE crew_member(
+	crew_id  		        VARCHAR(20) PRIMARY KEY NOT NULL,
+	name  			        VARCHAR(50)  		NOT NULL,
+	address  		        VARCHAR(50)   			,
+        city  			        VARCHAR(20)  			,
+        state			        VARCHAR(20)  			,
+	zip			        INT     			,
+       	country			        VARCHAR(20)  			,
+	contact			        VARCHAR(20)  		NOT NULL
+);
+
+CREATE TABLE crew_assigned_flight(
+	crew_id  		        VARCHAR(20)  		NOT NULL,
+	flight_id	                VARCHAR(20)     	NOT NULL,
+	role  			        VARCHAR(10)	  	NOT NULL,
+	PRIMARY KEY(crew_id, flight_id)
+);
+
+CREATE TABLE ticket(
+	ticket_no                	VARCHAR(20) PRIMARY KEY NOT NULL,
+	flight_id        		VARCHAR(20)	  	NOT NULL,
+	passenger_name  		VARCHAR(50)	  	NOT NULL,
+	email	    			VARCHAR(50)	  	NOT NULL,
+	phone  				VARCHAR(20)	  		,
+	checking_status  		VARCHAR(10)	  	NOT NULL,
+	CONSTRAINT fk_flight_id
+		FOREIGN KEY(flight_id)
+			REFERENCES flight_info(flight_id)
+
+);
+
+CREATE TABLE refueling_history(
+	refuel_id        	        VARCHAR(20) PRIMARY KEY NOT NULL,
+	aircraft_code	                VARCHAR(20)	  	NOT NULL,
+	totral_distance_travel          BIGINT  	  	NOT NULL,
+	refuel_date    		        TIMESTAMP	  		,
+	cost  			        BIGINT		  		,
+	CONSTRAINT fk_aircraft_code2
+		FOREIGN KEY(aircraft_code)
+			REFERENCES aircraft_info(aircraft_code)
+);
+
+CREATE TABLE maintenance_history(
+	maintenance_id 	                VARCHAR(20) PRIMARY KEY NOT NULL,
+	aircraft_code		        VARCHAR(20)	  	NOT NULL,
+	checks		  	        VARCHAR(5)	  	NOT NULL,
+	date	    		        TIMESTAMP	  	NOT NULL,
+	cost  			        BIGINT	  			,
+	CONSTRAINT fk_aircraft_code3
+		FOREIGN KEY(aircraft_code)
+			REFERENCES aircraft_info(aircraft_code)
+
+);
+
