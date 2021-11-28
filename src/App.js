@@ -13,6 +13,7 @@ import { CrewMember } from './pages/CrewMember';
 import { FlightInfo } from './pages/FlightInfo';
 import { FlightSummary } from './pages/FlightSummary';
 import { Ticket } from './pages/Ticket';
+import { AirPort } from './pages/Airport';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/flightinfo" element={<FlightInfo/>} />
             <Route path="/flightsummary" element={< FlightSummary/>} />
             <Route path="/ticket" element={<Ticket />} />
+            <Route path="/airport" element={<AirPort />} />
             <Route path="*" element={<PageNotFound/>} />
           </Routes>
       </Router>

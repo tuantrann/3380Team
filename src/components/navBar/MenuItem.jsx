@@ -37,7 +37,7 @@ export const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     <Link href={to}>
       <Text 
         fontWeight="bold" 
-        fontSize="1.5rem"
+        fontSize="1.2rem"
         display="block" 
         color="#62A609"
         _hover={{color: "#BAE885"}}
@@ -71,6 +71,8 @@ export const MenuLinks = ({ isOpen }) => {
         </MenuItem>
         <MenuItem  to="/crewmember" children="Crew">
         </MenuItem>
+        <MenuItem  to="/airport" children="Airport">
+        </MenuItem>
         
       </Stack>
     </Box>
@@ -85,8 +87,7 @@ export const NavBarContainer = ({ children, ...props }) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={8}
-      p={8}
+      p={2}
       bg={["primary.500", "primary.500", "transparent", "transparent"]}
       color={["white", "white", "primary.700", "primary.700"]}
       {...props}
