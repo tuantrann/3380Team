@@ -32,12 +32,12 @@ const IconContainer = ({children,where, ...rest}) => {
 export const Icons = () => {
     return (
         <>
-        <SimpleGrid columns={5} >
+        <SimpleGrid columns={4} >
             <IconContainer where="/flightinfo" children={<MdFlightTakeoff size={50} />} />
             <IconContainer where="/aircraftinfo" children={<IoIosSettings size={50}/>} />
             <IconContainer where="/crewmember" children={<IoIosPeople size={50}/>} />
             <IconContainer where="/ticket" children={<TiTicket size={50}/>} />
-            <IconContainer where="/airport" children={<IoIosAirplane size={50} />} />
+            {/* <IconContainer where="/airport" children={<IoIosAirplane size={50} />} /> */}
         </SimpleGrid>
         </>
     )

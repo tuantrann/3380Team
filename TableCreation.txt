@@ -1,17 +1,17 @@
-DROP TABLE IF EXISTS flight_info;
-DROP TABLE IF EXISTS aircraft_info;
-DROP TABLE IF EXISTS airport;
-DROP TABLE IF EXISTS amenities;
 DROP TABLE IF EXISTS flight_summary;
 DROP TABLE IF EXISTS crew_member;
-DROP TABLE IF EXISTS crew_assigned_flight;
+DROP TABLE IF EXISTS airport;
+DROP TABLE IF EXISTS amenities;
 DROP TABLE IF EXISTS ticket;
 DROP TABLE IF EXISTS refueling_history;
 DROP TABLE IF EXISTS maintenance_history;
+DROP TABLE IF EXISTS crew_assigned_flight;
+DROP TABLE IF EXISTS flight_info;
+DROP TABLE IF EXISTS aircraft_info;
 
 CREATE TABLE aircraft_info(
   	aircraft_code   		VARCHAR(20) PRIMARY KEY NOT NULL,
-        model  				VARCHAR(20)   			,
+        model  				VARCHAR(50)   			,
 	range	   			BIGINT  			
 );
 

@@ -11,7 +11,7 @@ export const  FlightPic= ({home}) => {
             justify="center"
             wrap="wrap"
             w="100%"
-            height="25rem"
+            height="23rem"
             padding="1rem"
             margin="0rem"
             backgroundImage="url(https://national.janamtv.com/wp-content/uploads/2020/03/special-flight.jpg)"

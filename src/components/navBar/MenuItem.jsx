@@ -71,8 +71,8 @@ export const MenuLinks = ({ isOpen }) => {
         </MenuItem>
         <MenuItem  to="/crewmember" children="Crew">
         </MenuItem>
-        <MenuItem  to="/airport" children="Airport">
-        </MenuItem>
+        {/* <MenuItem  to="/airport" children="Airport">
+        </MenuItem> */}
         
       </Stack>
     </Box>
