@@ -13,6 +13,10 @@ import { CrewMember } from './pages/CrewMember';
 import { FlightInfo } from './pages/FlightInfo';
 import { FlightSummary } from './pages/FlightSummary';
 import { Ticket } from './pages/Ticket';
+import { FlightDetail } from './pages/FlightDetail';
+import { AircraftDetail } from './pages/AircraftDetail';
+import { CrewDetail } from './pages/CrewDetail';
+import { TicketDetail } from './pages/TicketDetail';
 // import { AirPort } from './pages/Airport';
 
 function App() {
@@ -24,8 +28,11 @@ function App() {
             <Route path="/aircraftinfo" element={<AirCraftInfo />} />
             <Route path="/crewmember" element={<CrewMember />} />
             <Route path="/flightinfo" element={<FlightInfo/>} />
-            <Route path="/flightsummary" element={< FlightSummary/>} />
             <Route path="/ticket" element={<Ticket />} />
+            <Route path="/flightinfo/flightdetail/:id" element={<FlightDetail />} />
+            <Route path="/ticket/ticketdetail/:id" element={<TicketDetail /> } /> 
+            <Route path="/aircraftinfo/aircraftdetail/:id" element={<AircraftDetail /> } />
+            <Route path="/crewmember/crewdetail/:id" element={<CrewDetail /> } />
             {/* <Route path="/airport" element={<AirPort />} /> */}
             <Route path="*" element={<PageNotFound/>} />
           </Routes>

@@ -50,8 +50,8 @@ CREATE TABLE flight_summary(
 	number_of_empty_seat   		INT   				,
 	arrival_status  		VARCHAR(20)  		NOT NULL,
 	reason  			VARCHAR(20)  			,
-	accommodation  			VARCHAR(5)  			,
-	cost 				BIGINT
+	accommodation  			VARCHAR(20)  			,
+	cost 				REAL
 );
 
 CREATE TABLE crew_member(
@@ -68,7 +68,7 @@ CREATE TABLE crew_member(
 CREATE TABLE crew_assigned_flight(
 	crew_id  		        VARCHAR(20)  		NOT NULL,
 	flight_id	                VARCHAR(20)     	NOT NULL,
-	role  			        VARCHAR(10)	  	NOT NULL,
+	role  			        VARCHAR(50)	  	NOT NULL,
 	PRIMARY KEY(crew_id, flight_id)
 );
 
@@ -88,9 +88,9 @@ CREATE TABLE ticket(
 CREATE TABLE refueling_history(
 	refuel_id        	        VARCHAR(20) PRIMARY KEY NOT NULL,
 	aircraft_code	                VARCHAR(20)	  	NOT NULL,
-	totral_distance_travel          BIGINT  	  	NOT NULL,
+	total_distance_traveled          BIGINT  	  	NOT NULL,
 	refuel_date    		        TIMESTAMP	  		,
-	cost  			        BIGINT		  		,
+	cost  			        REAL		  		,
 	CONSTRAINT fk_aircraft_code2
 		FOREIGN KEY(aircraft_code)
 			REFERENCES aircraft_info(aircraft_code)
@@ -99,9 +99,9 @@ CREATE TABLE refueling_history(
 CREATE TABLE maintenance_history(
 	maintenance_id 	                VARCHAR(20) PRIMARY KEY NOT NULL,
 	aircraft_code		        VARCHAR(20)	  	NOT NULL,
-	checks		  	        VARCHAR(5)	  	NOT NULL,
+	checkStatus  	  	        VARCHAR(20)	  	NOT NULL,
 	date	    		        TIMESTAMP	  	NOT NULL,
-	cost  			        BIGINT	  			,
+	cost  			        REAL	  			,
 	CONSTRAINT fk_aircraft_code3
 		FOREIGN KEY(aircraft_code)
 			REFERENCES aircraft_info(aircraft_code)

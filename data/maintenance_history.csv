@@ -1,4 +1,4 @@
-maintenance_id,aircraft_code,check,date,cost
+maintenance_id,aircraft_code,checkStatus,date,cost
 D-762142,QE2802,D,12/16/2021 10:04,9834
 A-655995,AG2967,A,9/15/2021 8:07,6106
 A-829735,QV9359,A,11/30/2021 12:32,14404
