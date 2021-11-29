@@ -1,0 +1,21 @@
+flight_id,number_of_empty_seat,arrival_status,reason,accommodation,cost
+1,27,on time,,,$919.94 
+2,33,on time,,,$436.14 
+3,49,on time,,,$529.11 
+4,18,late,maintenance,,$255.48 
+5,35,late,maintenance,,$696.75 
+6,50,canceled,weather,refund,$962.62 
+7,28,late,security,,$484.29 
+8,25,late,security,,$305.98 
+9,45,canceled,mechanical,refund,$741.63 
+10,32,on time,,,$773.13 
+11,3,on time,,,$564.81 
+12,36,canceled,weather,refund,$317.40 
+13,17,on time,,,$628.49 
+14,24,on time,,,$758.85 
+15,30,on time,,,$554.88 
+16,2,late,mechanical,,$611.70 
+17,30,late,security,,$216.32 
+18,26,on time,,,$495.68 
+19,21,on time,,,$609.35 
+20,15,late,weather,,$492.50 
