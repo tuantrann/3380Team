@@ -9,6 +9,7 @@ import { CREW_COLUMNS } from './Interfaces/crewColumns';
 import { TICKET_COLUMNS } from './Interfaces/ticketColumns';
 import { FLIGHT_DETAIL_COLUMNS } from './Interfaces/flightdetailColumns';
 import { AIRCRAFT_COLUMNS } from './Interfaces/aircraftColumns';
+import { Styles } from './styles';
 
 
 export const DataTable = (props) => {
@@ -106,7 +107,11 @@ export const DataTable = (props) => {
                 </Flex>
                 <hr/>
                 <>
-                    {showTable ? <Table columns={columns} data={data} /> : null}
+                    {showTable ? 
+                    <Styles>
+                    <Table columns={columns} data={data} /> 
+                    </Styles>
+                    : null}
                 </>
             </Box>
         </Flex>

@@ -11,6 +11,7 @@ import { AIRCRAFT_DETAIL_COLUMNS } from './Interfaces/aircraftdetailColumns';
 import { CREW_DETAIL_COLUMNS } from './Interfaces/crewdetailColumns';
 import { TICKET_DETAIL_COLUMNS } from './Interfaces/ticketdetailColumns';
 import TableDetail from './tabledetailContainer';
+import { Styles } from './styles';
 
 
 export const DataFilter = (props) => {
@@ -64,7 +65,11 @@ export const DataFilter = (props) => {
             >
                 <hr/>
                 <>
-                    {showTable ? <TableDetail columns={columns} data={data} /> : null}
+                    {showTable ? 
+                    <Styles>
+                    <TableDetail columns={columns} data={data} /> 
+                    </Styles>
+                    : null}
                 </>
             </Box>
         </Flex>
