@@ -6,6 +6,11 @@ import { FLIGHT_COLUMNS } from './Interfaces/flightColumn';
 import { CREW_COLUMNS } from './Interfaces/crewColumns';
 import { TICKET_COLUMNS } from './Interfaces/ticketColumns';
 import { FLIGHT_DETAIL_COLUMNS } from './Interfaces/flightdetailColumns';
+import { AIRCRAFT_COLUMNS } from './Interfaces/aircraftColumns';
+import { AIRCRAFT_DETAIL_COLUMNS } from './Interfaces/aircraftdetailColumns';
+import { CREW_DETAIL_COLUMNS } from './Interfaces/crewdetailColumns';
+import { TICKET_DETAIL_COLUMNS } from './Interfaces/ticketdetailColumns';
+import TableDetail from './tabledetailContainer';
 
 
 export const DataFilter = (props) => {
@@ -22,26 +27,22 @@ export const DataFilter = (props) => {
     let INTERFACE;
     if(type == "flight")
     {
-        INTERFACE = FLIGHT_COLUMNS;
-    }
-    else if(type == "flight-detail")
-    {
         INTERFACE = FLIGHT_DETAIL_COLUMNS;
     }
     else if (type == "crew")
     {
-        INTERFACE = CREW_COLUMNS;
+        INTERFACE = CREW_DETAIL_COLUMNS;
     }
-    // else if (type == "aircraft")
-    // {
-    //     
-    //      
-    //     
-    // }
+    else if (type == "aircraft")
+    {
+        
+        INTERFACE = AIRCRAFT_DETAIL_COLUMNS;
+        
+    }
     else if (type == "ticket")
     {
       
-        INTERFACE = TICKET_COLUMNS
+        INTERFACE = TICKET_DETAIL_COLUMNS;
    
     }
     const columns = useMemo(
@@ -63,7 +64,7 @@ export const DataFilter = (props) => {
             >
                 <hr/>
                 <>
-                    {showTable ? <Table columns={columns} data={data} /> : null}
+                    {showTable ? <TableDetail columns={columns} data={data} /> : null}
                 </>
             </Box>
         </Flex>

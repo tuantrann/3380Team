@@ -8,6 +8,7 @@ import { FLIGHT_COLUMNS } from './Interfaces/flightColumn';
 import { CREW_COLUMNS } from './Interfaces/crewColumns';
 import { TICKET_COLUMNS } from './Interfaces/ticketColumns';
 import { FLIGHT_DETAIL_COLUMNS } from './Interfaces/flightdetailColumns';
+import { AIRCRAFT_COLUMNS } from './Interfaces/aircraftColumns';
 
 
 export const DataTable = (props) => {
@@ -35,22 +36,16 @@ export const DataTable = (props) => {
     {
         INTERFACE = FLIGHT_COLUMNS;
     }
-    else if(type == "flight-detail")
-    {
-        INTERFACE = FLIGHT_DETAIL_COLUMNS;
-    }
     else if (type == "crew")
     {
         
         INTERFACE = CREW_COLUMNS;
       
     }
-    // else if (type == "aircraft")
-    // {
-    //     
-    //      
-    //     
-    // }
+    else if (type == "aircraft")
+    {
+        INTERFACE = AIRCRAFT_COLUMNS;
+    }
     else if (type == "ticket")
     {
       

@@ -35,7 +35,7 @@ export const SearchBar = ({type}) => {
             const jsonData = await response.json();
             console.log(jsonData)
             setData(jsonData);
-            setDataType("flight-detail")
+            setDataType("flight")
             setShowData(true);
             
         }

@@ -2,7 +2,7 @@ import { BiDetail } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { SelectColumnFilter } from "../Filter";
 
-export const TICKET_COLUMNS = [
+export const TICKET_DETAIL_COLUMNS = [
 
     {
         Header: "Name",
@@ -22,8 +22,7 @@ export const TICKET_COLUMNS = [
     {
         Header: "Arrival City",
         accessor: "arrival_city",
-        Filter: SelectColumnFilter,
-        filter: "includes",
+        disableFilters: true,
     },
     {
         Header: "Departure Date",
@@ -33,14 +32,12 @@ export const TICKET_COLUMNS = [
     {
         Header: "Checking Status",
         accessor: "checking_status",
-        Filter: SelectColumnFilter,
-        filter: "includes"
+        disableFilters: true,
     },
      {
         Header: "Departure Gate",
         accessor: "departure_gate",
-        Filter: SelectColumnFilter,
-        filter: "includes"
+        disableFilters: true,
       
     },
     {

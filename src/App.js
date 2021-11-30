@@ -11,7 +11,6 @@ import { HomePage } from './pages/Home';
 import { AirCraftInfo } from './pages/AircraftInfo';
 import { CrewMember } from './pages/CrewMember';
 import { FlightInfo } from './pages/FlightInfo';
-import { FlightSummary } from './pages/FlightSummary';
 import { Ticket } from './pages/Ticket';
 import { FlightDetail } from './pages/FlightDetail';
 import { AircraftDetail } from './pages/AircraftDetail';

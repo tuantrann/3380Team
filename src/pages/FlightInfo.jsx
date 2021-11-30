@@ -10,12 +10,17 @@ export const FlightInfo = (props) => {
 
     const [flightData, setFlightData] = useState([]);
     const [showData, setShowData] = useState(false);
-    useEffect(async () => {
+
+    async function getData(){
         const response = await fetch("http://localhost:5000/allFlight")
         const jsonData = await response.json();
         console.log(jsonData)
         setFlightData(jsonData);
         setShowData(true);
+    }
+
+    useEffect( () => {
+        getData()
     }, [])
 
 

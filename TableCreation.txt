@@ -99,7 +99,7 @@ CREATE TABLE refueling_history(
 CREATE TABLE maintenance_history(
 	maintenance_id 	                VARCHAR(20) PRIMARY KEY NOT NULL,
 	aircraft_code		        VARCHAR(20)	  	NOT NULL,
-	checkStatus  	  	        VARCHAR(20)	  	NOT NULL,
+	checkstatus  	  	        VARCHAR(20)	  	NOT NULL,
 	date	    		        TIMESTAMP	  	NOT NULL,
 	cost  			        REAL	  			,
 	CONSTRAINT fk_aircraft_code3

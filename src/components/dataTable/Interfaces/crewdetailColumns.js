@@ -2,13 +2,12 @@ import { BiDetail } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { SelectColumnFilter } from "../Filter";
 
-export const CREW_COLUMNS = [
+export const CREW_DETAIL_COLUMNS = [
 
     {
         Header: "Name",
         accessor: "name",
-        Filter: SelectColumnFilter,
-        filter: "includes",
+        disableFilters: true,
     },
     {
         Header: "Address",
@@ -18,26 +17,22 @@ export const CREW_COLUMNS = [
     {
         Header: "City",
         accessor: "city",
-        Filter: SelectColumnFilter,
-        filter: "includes",
+        disableFilters: true,
     },
     {
         Header: "State",
         accessor: "state",
-        Filter: SelectColumnFilter,
-        filter: "includes",
+        disableFilters: true,
     },
     {
         Header: "Zipcode",
         accessor: "zip",
-        Filter: SelectColumnFilter,
-        filter: "includes",
+        disableFilters: true,
     },
     {
         Header: "Country",
         accessor: "country",
-        Filter: SelectColumnFilter,
-        filter: "includes",
+        disableFilters: true,
       
     },
     {

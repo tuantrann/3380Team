@@ -9,11 +9,16 @@ import { SearchBar } from '../components/searchFunction/searchBar';
 export const CrewMember = (props) => {
     const [crewData, setCrewData] = useState([]);
     const [showData, setShowData] = useState(false);
-    useEffect(async () => {
+
+    async function getData(){
         const response = await fetch("http://localhost:5000/allCrew")
         const jsonData = await response.json();
         setCrewData(jsonData);
         setShowData(true);
+    }
+
+    useEffect(() => {
+        getData()
     }, [])
     return (
         <div>
