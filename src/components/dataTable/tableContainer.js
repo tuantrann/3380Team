@@ -1,8 +1,11 @@
-import { Box } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/button";
+import { Box, Flex } from "@chakra-ui/layout";
 import { React } from "react";
+import { Link } from "react-router-dom";
 import { useTable, useFilters, useGlobalFilter } from "react-table";
 import { GlobalFilter, DefaultFilterForColumn } from "./Filter";
- 
+
+
 export default function Table({ columns, data }) {
   const {
    getTableProps,
@@ -34,12 +37,25 @@ export default function Table({ columns, data }) {
              textAlign: "center",
            }}
          >
+            <Flex
+                justifyContent="center"
+                alignItems="center"
+            >
            {/* Rendering Global Filter */}
            <GlobalFilter
              preGlobalFilteredRows={preGlobalFilteredRows}
              globalFilter={state.globalFilter}
              setGlobalFilter={setGlobalFilter}
            />
+           <Button
+            color=" #7b7d7d"
+            backgroundColor="#D1D1D1"
+            fontWeight="bold"
+         
+           > <Link to={`addNew`}>
+               Add New
+            </Link></Button>
+           </Flex>
          </th>
        </tr>
        {headerGroups.map((headerGroup) => (

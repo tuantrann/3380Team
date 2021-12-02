@@ -4,11 +4,11 @@ const config  = require('./config');
 
 
 const pool = new Pool({
-  host: config.elephantHost,
-  user: config.elephantUser,
-  password: config.elephantPassword,
-  database: config.elephantDatabase,
-  port: config.elephantPort,
+  host: config.dbHost,
+  user: config.dbUser,
+  password: config.dbPassword,
+  database: config.dbDatabase,
+  port: config.dbPort,
 });
 
 module.exports = pool;

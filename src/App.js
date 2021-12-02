@@ -16,6 +16,7 @@ import { FlightDetail } from './pages/FlightDetail';
 import { AircraftDetail } from './pages/AircraftDetail';
 import { CrewDetail } from './pages/CrewDetail';
 import { TicketDetail } from './pages/TicketDetail';
+import { AddNewData } from './pages/addNewData';
 // import { AirPort } from './pages/Airport';
 
 function App() {
@@ -28,6 +29,10 @@ function App() {
             <Route path="/crewmember" element={<CrewMember />} />
             <Route path="/flightinfo" element={<FlightInfo/>} />
             <Route path="/ticket" element={<Ticket />} />
+            <Route path="/aircraftinfo/addNew" element={<AddNewData /> } />
+            <Route path="/crewmember/addNew" element={<AddNewData />} />
+            <Route path="/flightinfo/addNew" element={<AddNewData /> } />
+            <Route path="/ticket/addnew" element={<AddNewData /> } />
             <Route path="/flightinfo/flightdetail/:id" element={<FlightDetail />} />
             <Route path="/ticket/ticketdetail/:id" element={<TicketDetail /> } /> 
             <Route path="/aircraftinfo/aircraftdetail/:id" element={<AircraftDetail /> } />
