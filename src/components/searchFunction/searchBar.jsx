@@ -3,6 +3,7 @@ import { Input } from '@chakra-ui/input';
 import { Box, Container, Flex } from '@chakra-ui/layout';
 import React, { useEffect, useState } from 'react';
 import { DataFilter } from '../dataTable/DataFilter';
+import { AdvancedSearchBox } from './advancedSearch';
 
 export const SearchBar = ({type}) => {
     const [placeHolder, setPlaceHolder] = useState();
@@ -10,6 +11,7 @@ export const SearchBar = ({type}) => {
     const [showData, setShowData] = useState(false);
     const [inputData, setInputData] = useState('');
     const [dataType, setDataType] = useState('');
+    const [advancedSearch, setAdvancedSearch] = useState(false);
     useEffect( () => {
         if (type == "flight"){
             setPlaceHolder("Enter flight number")
@@ -80,10 +82,15 @@ export const SearchBar = ({type}) => {
         
         
     }
+    const advancedSearchHandle = () => {
+        setAdvancedSearch(true)
+    }
+    setAdvancedSearch.bind(this)
 
     handleChange.bind(this)
     return (
         <>
+        {advancedSearch && type=="flight" && <AdvancedSearchBox setAdvancedSearch={()=>setAdvancedSearch(false)} />}
         <Flex
             justifyContent="space-around"
             alignItems="center"
@@ -91,6 +98,19 @@ export const SearchBar = ({type}) => {
             height="5rem"
 
         >  
+           { type=="flight" && <Button
+                onClick={() => advancedSearchHandle()}
+                padding="1.5rem"
+                margin="1rem"
+                backgroundColor="#E75B18"
+                border="2px solid"
+                _hover={{
+                    backgroundColor: "#FA7537"
+                }}
+            >
+                Advance
+            </Button>
+}
             <Input
                 value={inputData}
                 onChange={(event)=>setInputData(event.target.value)}
@@ -99,6 +119,7 @@ export const SearchBar = ({type}) => {
                 backgroundColor="white"
                 width="80%"
                 padding="1.5rem"
+                margin= "1rem"
                 fontSize="1.5rem"
             >
             </Input>
@@ -116,6 +137,7 @@ export const SearchBar = ({type}) => {
             <Button
                 onClick={() => {setShowData(false); setInputData('');}}
                 padding="1.5rem"
+                margin="1rem"
                 backgroundColor="#E75B18"
                 border="2px solid"
                 _hover={{
