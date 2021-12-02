@@ -200,3 +200,93 @@ INNER JOIN airport AS b
 ON flight_info.arrival_airport_code=b.airport_code
 
  WHERE status = 'arrived' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+
+INNER JOIN amenities
+ON flight_info.flight_id=amenities.flight_id
+ WHERE wifi_service = 'Y' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+
+INNER JOIN amenities
+ON flight_info.flight_id=amenities.flight_id
+ WHERE wifi_service = 'free' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+
+INNER JOIN amenities
+ON flight_info.flight_id=amenities.flight_id
+ WHERE wifi_service = 'free' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+
+INNER JOIN amenities
+ON flight_info.flight_id=amenities.flight_id
+ WHERE wifi_service = 'free' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+
+INNER JOIN amenities
+ON flight_info.flight_id=amenities.flight_id
+ WHERE wifi_service = 'free' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+
+INNER JOIN amenities
+ON flight_info.flight_id=amenities.flight_id
+ WHERE food_beverage = 'Y' AND movie = 'Y' AND wifi_service = 'free' ;

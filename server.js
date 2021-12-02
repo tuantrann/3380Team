@@ -3,8 +3,7 @@ const app = express();
 const cors = require('cors');
 const pool = require('./creds');
 const fs = require('fs');
-const { off } = require('process');
-// add for keroku use
+ // add for keroku use
 app.use(express.static('public'));
 
 // middleware
@@ -1043,7 +1042,7 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
 
     query_string = (query_string + ";")
 
-    //console.log(query_string)
+    console.log(query_string)
     
     const allDemos = await pool.query(query_string);
     logTransactionFile(query_string)
@@ -1060,5 +1059,5 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
-  //console.log(`server has started on port ${port}`);
+  console.log(`server has started on port ${port}`);
 });
