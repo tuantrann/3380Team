@@ -59,15 +59,46 @@ export const AddNewData = (props) => {
         // setShowData(true);
     }
 
-    const fetchAirportInfo = async(airport_code) => {
-        let flightInfo = await fetch("http://localhost:5000/selectedAirport");
-        let jsonData = await flightInfo.json();
-
-        console.log(jsonData);
-
+    const checkingValidCondition = () => {
+        let error = '';
+        let allAirportCodes = data.airport_code.map(x => x.airport_code)
+        let flightId = data.flight_id.map(x=>x.flight_id)
+        let aircraftCode = data.aircraft_code.map(x=>x.aircraft_code)
+        let refuelId = data.refuel_id.map(x=>x.refuel_id)
+        let maintenanceId = data.maintenance_id.map(x=>x.maintenance_id)
+        console.log(flight_id)
+        console.log(flightId)
+        console.log(flightId.indexOf(flight_id))
+        if (flightId.indexOf(flight_id) != -1){
+            error = 'Flight Number already exists'
+        }
+        else if (aircraftCode.indexOf(aircraft_code) != -1){
+            error = 'Aircraft Code already exists'
+        }
+        else if (refuelId.indexOf(refuel_id) != -1){
+            error = 'Refuel Number already exists'
+        }
+        else if (maintenanceId.indexOf(maintenance_id) != -1){
+            error = 'Maintenance Number already exists'
+        }
+        else if(allAirportCodes.indexOf(departure_airport_code) == -1){
+            error = 'Not a valid departure airport code'
+        }
+        else if(allAirportCodes.indexOf(arrival_airport_code) == -1){
+            error = 'Not a valid arrival airport code'
+        }
+        return error
     }
 
     const submitData1 = async () => {
+
+        let error = checkingValidCondition()
+        if (error != '')
+        {
+            alert(error)
+            return
+        }
+
         let stat = await fetch("http://localhost:5000/addData1",{
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -111,6 +142,57 @@ export const AddNewData = (props) => {
         }
     }
 
+    const handleDepartureAirportCode = async(e) =>{
+        setDepartureAirportCode(e);
+        if(e.length != 3){
+            return
+        }
+        if(e.length != 3){
+            return
+        }
+        let allAirportCodes = data.airport_code.map(x => x.airport_code)
+        if(allAirportCodes.indexOf(e) == -1){
+            return
+        }
+        let flightInfo = await fetch("http://localhost:5000/selectedAirport",{
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                airport_code: e
+            })
+        });
+        let jsonData = await flightInfo.json();
+        console.log(jsonData);
+        let formatData =jsonData[0];
+        setDepartureAirportName(formatData.airport_name)
+        setDepartureCity(formatData.city)
+        setDEpartureTimezone(formatData.timezone)
+        
+    }
+
+    const handleArrivalAirportCode = async(e) =>{
+        setArrivalAirportCode(e);
+        if(e.length != 3){
+            return
+        }
+        let allAirportCodes = data.airport_code.map(x => x.airport_code)
+        if(allAirportCodes.indexOf(e) == -1){
+            return
+        }
+        let flightInfo = await fetch("http://localhost:5000/selectedAirport",{
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({airport_code: e}), 
+        });
+
+        let jsonData = await flightInfo.json();
+        console.log(jsonData);
+        let formatData =jsonData[0];
+        setArrivalAirportName(formatData.airport_name)
+        setArrivalCity(formatData.city)
+        setArrivalTimezone(formatData.timezone)
+        
+    }
 
     return(
         <>
@@ -174,13 +256,13 @@ export const AddNewData = (props) => {
                         isRequired    
                     >
                         <FormLabel>Departure Airport Code</FormLabel>
-                        <Input value={departure_airport_code|| ''} onChange={(e)=>setDepartureAirportCode(e.target.value)}></Input>
+                        <Input value={departure_airport_code|| ''} onChange={(e)=>handleDepartureAirportCode(e.target.value)}></Input>
                     </FormControl>
                     <FormControl
                         isRequired    
                     >
                         <FormLabel>Arrival Airport Code</FormLabel>
-                        <Input value={arrival_airport_code|| ''} onChange={(e)=>setArrivalAirportCode(e.target.value)}></Input>
+                        <Input value={arrival_airport_code|| ''} onChange={(e)=>handleArrivalAirportCode(e.target.value)}></Input>
                     </FormControl>
                     <FormControl
                         isRequired    

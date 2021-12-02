@@ -178,14 +178,17 @@ departure_gate = '${departure_gate}',
 arrival_gate = '${arrival_gate}', 
 baggage_claim =' ${baggage_claim}'
 WHERE flight_id = '${flight_id}'; 
-COMMIT; 
 `;
     console.log(query)
     logTransactionFile(query);
     const allDemos = await pool.query(query);
+    await pool.query('COMMIT;');
+    logTransactionFile('COMMIT;')
     res.status(200).send('Good');
   } catch(err){
     console.log(err.message);
+    await pool.query('ROLLBACK;')
+    logTransactionFile('ROLLBACK;')
     res.status(400).send('Bad');
   }
 });
@@ -218,15 +221,18 @@ arrival_status='${arrival_status}',
 reason='${reason}',
 accommodation='${accommodation}',
 cost='${cost}'
-WHERE flight_id='${flight_id}';
-COMMIT; 
+WHERE flight_id='${flight_id}'; 
 `;
     console.log(query)
     logTransactionFile(query);
     await pool.query(query);
+    await pool.query('COMMIT;');
+    logTransactionFile('COMMIT;')
     res.status(200).send('Good');
   } catch(err){
     console.log(err.message);
+    await pool.query('ROLLBACK;')
+    logTransactionFile('ROLLBACK;')
     res.status(400).send('Bad');
   }
 });
@@ -247,25 +253,26 @@ UPDATE crew_member
 SET 
 name='${name}'
 WHERE  crew_id='${crew_id}';
-COMMIT; 
 `;
     console.log(query)
     await pool.query(query);
     query = `
-BEGIN; 
 UPDATE crew_assigned_flight
 SET 
 role='${role}',
 WHERE  crew_id='${crew_id}',
 AND flight_id='${flight_id}';
-COMMIT; 
 `;
     console.log(query)
     logTransactionFile(query);
     await pool.query(query);
+    await pool.query('COMMIT;');
+    logTransactionFile('COMMIT;')
     res.status(200).send('Good');
   } catch(err){
     console.log(err.message);
+    await pool.query('ROLLBACK;')
+    logTransactionFile('ROLLBACK;')
     res.status(400).send('Bad');
   }
 });
@@ -342,15 +349,18 @@ email='${email}',
 phone='${phone}',
 checking_status='${checking_status}'
 WHERE ticket_no='${ticket_no}';
-COMMIT; 
 `;
     console.log(query)
     logTransactionFile(query);
 
     const allDemos = await pool.query(query);
+    await pool.query('COMMIT;');
+    logTransactionFile('COMMIT;')
     res.status(200).send('Good');
   } catch(err){
     console.log(err.message);
+    await pool.query('ROLLBACK;')
+    logTransactionFile('ROLLBACK;')
     res.status(400).send('Bad');
   }
 });
@@ -423,14 +433,17 @@ zip='${zip}',
 country='${country}',
 contact='${contact}'
 WHERE crew_id='${crew_id}';
-COMMIT; 
 `;
     console.log(query)
     logTransactionFile(query)
     const allDemos = await pool.query(query);
+    await pool.query('COMMIT;');
+    logTransactionFile('COMMIT;')
     res.status(200).send('Good');
   } catch(err){
     console.log(err.message);
+    await pool.query('ROLLBACK;')
+    logTransactionFile('ROLLBACK;')
     res.status(400).send('Bad');
   }
 });
@@ -530,15 +543,17 @@ checkstatus='${checkstatus}',
 date=TO_DATE('${date}', 'MM/DD HH24:MI'),
 cost='${maintenance_cost}'
 WHERE maintenance_id='${maintenance_id}';
-
-COMMIT; 
 `;
     console.log(query)
     logTransactionFile(query)
     const allDemos = await pool.query(query);
+    await pool.query('COMMIT;');
+    logTransactionFile('COMMIT;')
     res.status(200).send('Good');
   } catch(err){
     console.log(err.message);
+    await pool.query('ROLLBACK;')
+    logTransactionFile('ROLLBACK;')
     res.status(400).send('Bad');
   }
 });
@@ -594,18 +609,19 @@ SELECT maintenance_id FROM maintenance_history;
 app.post('/selectedAirport', async (req, res) => {
     try{
         const {airport_code} = req.body;
+        console.log(airport_code)
         const query1 = `
 SELECT * FROM airport
 WHERE airport_code='${airport_code}';
-;
-        `
-        logQueryFile(query1)
+    `
+        console.log(query1)
         let temp = await pool.query(query1);
-        result.flight_id = temp.rows;
-        res.status(200).json(result);
+        logQueryFile(query1)
+        
+        res.status(200).json(temp.rows);
 
     }catch(err){
-        res.status(400).send('Bad');
+        res.send('Bad');
     }
 })
 
@@ -668,15 +684,18 @@ INSERT INTO flight_summary(flight_id, number_of_empty_seat, arrival_status, reas
 VALUES('${flight_id}', '${number_of_empty_seat}', '${arrival_status}', '${reason}', '${accommodation}', ${cost});
 INSERT INTO amenities(flight_id, wifi_service, food_beverage, movie)
 VALUES('${flight_id}', '${wifi_service}', '${food_beverage}', '${movie}');
-COMMIT; 
 `;
     console.log(query)
     
     const allDemos = await pool.query(query);
     logTransactionFile(query)
+    await pool.query('COMMIT;');
+    logTransactionFile('COMMIT;')
     res.status(200).send('Good');
   } catch(err){
     console.log(err.message);
+    await pool.query('ROLLBACK;')
+    logTransactionFile('ROLLBACK;')
     res.status(400).send('Bad');
   }
 });

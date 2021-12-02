@@ -242,3 +242,665 @@ INNER JOIN airport AS b
 ON flight_info.arrival_airport_code=b.airport_code
 WHERE flight_id='12345';    
     
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='A';
+;
+        
+SELECT * FROM airport
+WHERE airport_code='';
+;
+        
+SELECT * FROM airport
+WHERE airport_code='A';
+;
+        
+SELECT * FROM airport
+WHERE airport_code='';
+;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code;
+
+SELECT flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code;
+
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='AAA';
+;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT refuel_id FROM refueling_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT refuel_id FROM refueling_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT * FROM airport
+WHERE airport_code='CAN';
+    
+SELECT flight_id FROM flight_info;
+        
+SELECT aircraft_code FROM aircraft_info;
+        
+SELECT refuel_id FROM refueling_history;
+        
+SELECT airport_code,city FROM airport;
+        
+SELECT maintenance_id FROM maintenance_history;
+        
+SELECT a.aircraft_code, model, range, refuel_id, total_distance_traveled, TO_CHAR(refuel_date, 'MM/DD HH24:MI') AS refuel_date, 
+r.cost AS refuel_history, maintenance_id, checkstatus, TO_CHAR(date, 'MM/DD HH24:MI') as date, m.cost AS maintenance_cost
+FROM aircraft_info AS a
+INNER JOIN refueling_history AS r
+ON a.aircraft_code=r.aircraft_code
+INNER JOIN maintenance_history AS m
+ON a.aircraft_code=m.aircraft_code;
