@@ -71,7 +71,7 @@ INNER JOIN airport AS b
 ON flight_info.arrival_airport_code=b.airport_code
 WHERE flight_id='${inputData}';    
     `;
-    console.log(query);
+    //console.log(query);
     logQueryFile(query);
     const allDemos = await pool.query(query);
     res.json(allDemos.rows);
@@ -98,7 +98,7 @@ INNER JOIN airport AS b
 ON flight_info.arrival_airport_code=b.airport_code
 WHERE flight_id='${inputData}';    
     `;
-    console.log(query);
+    //console.log(query);
     logQueryFile(query);
     const allDemos = await pool.query(query);
     res.json(allDemos.rows);
@@ -118,7 +118,7 @@ INNER JOIN amenities
 ON flight_summary.flight_id=amenities.flight_id
 WHERE flight_summary.flight_id='${inputData}';    
     `;
-    console.log(query);
+    //console.log(query);
     logQueryFile(query);
     const allDemos = await pool.query(query);
     res.json(allDemos.rows);
@@ -137,7 +137,7 @@ INNER JOIN crew_member AS c
 ON f.crew_id=c.crew_id
 WHERE flight_id='${inputData}';    
     `;
-    console.log(query);
+    //console.log(query);
     logQueryFile(query);
     const allDemos = await pool.query(query);
     res.json(allDemos.rows);
@@ -180,7 +180,7 @@ arrival_gate = '${arrival_gate}',
 baggage_claim =' ${baggage_claim}'
 WHERE flight_id = '${flight_id}'; 
 `;
-    console.log(query)
+    //console.log(query)
     logTransactionFile(query);
     const allDemos = await pool.query(query);
     await pool.query('COMMIT;');
@@ -224,7 +224,7 @@ accommodation='${accommodation}',
 cost='${cost}'
 WHERE flight_id='${flight_id}'; 
 `;
-    console.log(query)
+    //console.log(query)
     logTransactionFile(query);
     await pool.query(query);
     await pool.query('COMMIT;');
@@ -255,7 +255,7 @@ SET
 name='${name}'
 WHERE  crew_id='${crew_id}';
 `;
-    console.log(query)
+    //console.log(query)
     await pool.query(query);
     query = `
 UPDATE crew_assigned_flight
@@ -264,7 +264,7 @@ role='${role}',
 WHERE  crew_id='${crew_id}',
 AND flight_id='${flight_id}';
 `;
-    console.log(query)
+    //console.log(query)
     logTransactionFile(query);
     await pool.query(query);
     await pool.query('COMMIT;');
@@ -313,7 +313,7 @@ INNER JOIN airport AS a
 ON f.arrival_airport_code=a.airport_code
 WHERE t.ticket_no='${inputData}'
 ;`;
-    console.log(query);
+    //console.log(query);
     logQueryFile(query);
     const allDemos = await pool.query(query);
     res.json(allDemos.rows);
@@ -351,7 +351,7 @@ phone='${phone}',
 checking_status='${checking_status}'
 WHERE ticket_no='${ticket_no}';
 `;
-    console.log(query)
+    //console.log(query)
     logTransactionFile(query);
 
     const allDemos = await pool.query(query);
@@ -435,7 +435,7 @@ country='${country}',
 contact='${contact}'
 WHERE crew_id='${crew_id}';
 `;
-    console.log(query)
+    //console.log(query)
     logTransactionFile(query)
     const allDemos = await pool.query(query);
     await pool.query('COMMIT;');
@@ -545,7 +545,7 @@ date=TO_DATE('${date}', 'MM/DD HH24:MI'),
 cost='${maintenance_cost}'
 WHERE maintenance_id='${maintenance_id}';
 `;
-    console.log(query)
+    //console.log(query)
     logTransactionFile(query)
     const allDemos = await pool.query(query);
     await pool.query('COMMIT;');
@@ -610,12 +610,12 @@ SELECT maintenance_id FROM maintenance_history;
 app.post('/selectedAirport', async (req, res) => {
     try{
         const {airport_code} = req.body;
-        console.log(airport_code)
+        //console.log(airport_code)
         const query1 = `
 SELECT * FROM airport
 WHERE airport_code='${airport_code}';
     `
-        console.log(query1)
+        //console.log(query1)
         let temp = await pool.query(query1);
         logQueryFile(query1)
         
@@ -686,7 +686,7 @@ VALUES('${flight_id}', '${number_of_empty_seat}', '${arrival_status}', '${reason
 INSERT INTO amenities(flight_id, wifi_service, food_beverage, movie)
 VALUES('${flight_id}', '${wifi_service}', '${food_beverage}', '${movie}');
 `;
-    console.log(query)
+    //console.log(query)
     
     const allDemos = await pool.query(query);
     logTransactionFile(query)
@@ -1043,7 +1043,7 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
 
     query_string = (query_string + ";")
 
-    console.log(query_string)
+    //console.log(query_string)
     
     const allDemos = await pool.query(query_string);
     logTransactionFile(query_string)
@@ -1060,5 +1060,5 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
-  console.log(`server has started on port ${port}`);
+  //console.log(`server has started on port ${port}`);
 });

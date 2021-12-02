@@ -54,7 +54,7 @@ export const AddNewData = (props) => {
         let flightInfo = await fetch("http://localhost:5000/getIds");
         let jsonData = await flightInfo.json();
 
-        console.log(jsonData);
+        //console.log(jsonData);
         setData(jsonData);
         // setShowData(true);
     }
@@ -66,9 +66,9 @@ export const AddNewData = (props) => {
         let aircraftCode = data.aircraft_code.map(x=>x.aircraft_code)
         let refuelId = data.refuel_id.map(x=>x.refuel_id)
         let maintenanceId = data.maintenance_id.map(x=>x.maintenance_id)
-        console.log(flight_id)
-        console.log(flightId)
-        console.log(flightId.indexOf(flight_id))
+        //console.log(flight_id)
+        //console.log(flightId)
+        //console.log(flightId.indexOf(flight_id))
         if (flightId.indexOf(flight_id) != -1){
             error = 'Flight Number already exists'
         }
@@ -162,7 +162,7 @@ export const AddNewData = (props) => {
             })
         });
         let jsonData = await flightInfo.json();
-        console.log(jsonData);
+        //console.log(jsonData);
         let formatData =jsonData[0];
         setDepartureAirportName(formatData.airport_name)
         setDepartureCity(formatData.city)
@@ -186,7 +186,7 @@ export const AddNewData = (props) => {
         });
 
         let jsonData = await flightInfo.json();
-        console.log(jsonData);
+        //console.log(jsonData);
         let formatData =jsonData[0];
         setArrivalAirportName(formatData.airport_name)
         setArrivalCity(formatData.city)
@@ -243,7 +243,7 @@ export const AddNewData = (props) => {
                     <FormControl
                         isRequired    
                     >
-                        <FormLabel>Departure Time</FormLabel>
+                    <FormLabel>Departure Time</FormLabel>
                         <Input placeholder="MM/DD HH24:MI" value={scheduled_departure_time|| ''} onChange={(e)=>setDepartureDate(e.target.value)}></Input>
                     </FormControl>
                     <FormControl

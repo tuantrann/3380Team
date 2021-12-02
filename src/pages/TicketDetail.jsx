@@ -37,7 +37,7 @@ export const TicketDetail = (props) => {
         });
         let jsonData = await flightInfo.json();
         
-        console.log(jsonData);
+        //console.log(jsonData);
         setUpData(jsonData[0]);
         setData1(jsonData[0]);
         setShowData(true);

@@ -58,7 +58,7 @@ export const AdvancedSearchBox = ({setAdvancedSearch, setData, setDataType, setS
             })
         });
         const jsonData = await response.json();
-        console.log(jsonData)
+        //console.log(jsonData)
         setData(jsonData);
         setDataType("flight")
         setShowData(true);

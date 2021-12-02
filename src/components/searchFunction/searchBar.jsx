@@ -35,7 +35,7 @@ export const SearchBar = ({type}) => {
                 body: JSON.stringify({inputData})
             });
             const jsonData = await response.json();
-            console.log(jsonData)
+            //console.log(jsonData)
             setData(jsonData);
             setDataType("flight")
             setShowData(true);
@@ -48,7 +48,7 @@ export const SearchBar = ({type}) => {
                 body: JSON.stringify({inputData})
             });
             const jsonData = await response.json();
-            console.log(jsonData)
+            //console.log(jsonData)
             setData(jsonData);
             setDataType("crew")
             setShowData(true);
@@ -61,7 +61,7 @@ export const SearchBar = ({type}) => {
                 body: JSON.stringify({inputData})
             });
             const jsonData = await response.json();
-            console.log(jsonData)
+            //console.log(jsonData)
             setData(jsonData);
             setDataType("aircraft")
             setShowData(true);
@@ -73,7 +73,7 @@ export const SearchBar = ({type}) => {
                 body: JSON.stringify({inputData})
             });
             const jsonData = await response.json();
-            console.log(jsonData)
+            //console.log(jsonData)
             setData(jsonData);
             setDataType("ticket");
             setShowData(true);

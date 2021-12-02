@@ -93,7 +93,7 @@ export const FlightDetail = (props) => {
         });
         let jsonData = await flightInfo.json();
         
-        console.log(jsonData)
+        //console.log(jsonData)
         setData1(jsonData[0]);
 
         let flightSummary = await fetch("http://localhost:5000/detailedFlight2",{
@@ -103,7 +103,7 @@ export const FlightDetail = (props) => {
         });
         let jsonData1 = await flightSummary.json();
         
-        console.log(jsonData1)
+        //console.log(jsonData1)
         setData2(jsonData1[0]);
 
         let crewInfo = await fetch("http://localhost:5000/detailedFlight3",{
@@ -112,7 +112,7 @@ export const FlightDetail = (props) => {
                 body: JSON.stringify({inputData: id})
             });
         let jsonData2 = await crewInfo.json();
-        console.log(jsonData2)
+        //console.log(jsonData2)
         setData3(jsonData2[0])
         setUpData(jsonData[0], jsonData1[0], jsonData2[0]);
         setShowData(true);
