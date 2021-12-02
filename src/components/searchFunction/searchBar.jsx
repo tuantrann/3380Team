@@ -86,11 +86,13 @@ export const SearchBar = ({type}) => {
         setAdvancedSearch(true)
     }
     setAdvancedSearch.bind(this)
-
+    setData.bind(this)
+    setDataType.bind(this)
+    setShowData.bind(this)
     handleChange.bind(this)
     return (
         <>
-        {advancedSearch && type=="flight" && <AdvancedSearchBox setAdvancedSearch={()=>setAdvancedSearch(false)} />}
+        {advancedSearch && type=="flight" && <AdvancedSearchBox setData={setData} setDataType={setDataType} setShowData={setShowData} setAdvancedSearch={()=>setAdvancedSearch(false)} />}
         <Flex
             justifyContent="space-around"
             alignItems="center"

@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const pool = require('./creds');
 const fs = require('fs');
+const { off } = require('process');
 // add for keroku use
 app.use(express.static('public'));
 
@@ -699,6 +700,363 @@ VALUES('${flight_id}', '${wifi_service}', '${food_beverage}', '${movie}');
     res.status(400).send('Bad');
   }
 });
+
+
+app.post('/advancedSearch', async (req, res) => {
+    try{
+    const {
+        aircraft_code,
+        refuel_id,
+        maintenance_id,
+        date,
+        model,
+        range,
+        refuel_date,
+        total_distance_traveled,
+        flight_id,
+        scheduled_departure_time,
+        scheduled_arrival_time,
+        departure_airport_code,
+        arrival_airport_code,
+        status,
+        departure_gate,
+        baggage_claim,
+        arrival_status,
+        food_beverage,
+        movie,
+        wifi_service
+    } = req.body;
+
+
+    var query_string=
+`
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+`;
+
+    if(arrival_status){
+        query_string += 
+        `
+INNER JOIN flight_summary
+ON flight_info.flight_id= flight_summary.flight_id
+
+        `
+    }
+    if (wifi_service || food_beverage || movie) {
+        query_string += 
+`
+INNER JOIN amenities
+ON flight_info.flight_id=amenities.flight_id
+`
+    }
+    if(model || range){
+        query_string += 
+        `
+INNER JOIN aircraft_info
+ON aircraft_info.aircraft_code=flight_info.aircraft_code
+        `
+    }
+    if(total_distance_traveled || refuel_date)
+{
+    query_string += 
+
+    `
+INNER JOIN refueling_history
+ON refueling_history.aircraft_code=flight_info.aircraft_code
+    `
+}
+    if(date){
+
+query_string += 
+`
+INNER JOIN maintenance_history
+ON maintenance_history.aircraft_code=flight_info.aircraft_code
+`
+    }
+    query_string += ' WHERE '
+    let first = true;
+    if(aircraft_code != "" && aircraft_code != " ") //meaning that is the user enter a flight_id, add the filter query otherwise skip and go to the next
+    {
+        query_string = (query_string + ` aircraft_code = '${aircraft_code}' `)
+        first = false;
+    }
+
+    if(refuel_id != "" && refuel_id !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `refuel_id = '${refuel_id}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND refuel_id = '${refuel_id}' `
+        }
+    }
+
+    if(maintenance_id != "" && maintenance_id !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `maintenance_id = '${maintenance_id}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND maintenance_id = '${maintenance_id}' `
+        }
+    }
+
+    if(date != "" && date !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `DATE(maintenance_history.date) = TO_DATE('${date}', 'MM/DD') `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND DATE(maintenance_history.date) = TO_DATE('${date}', 'MM/DD' `
+        }
+    }
+    if(model != "" && model !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `model = '${model}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND model = '${model}' `
+        }
+    }
+    if(range != "" && range !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `range = '${range}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND range = '${range}' `
+        }
+    }
+    if(refuel_date != "" && refuel_date !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `DATE(refuel_date) = TO_DATE('${refuel_date}', 'MM/DD') `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND DATE(refuel_date) = TO_DATE('${refuel_date}', 'MM/DD' `
+        }
+    }
+    if(total_distance_traveled != "" && total_distance_traveled !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `total_distance_traveled = '${total_distance_traveled}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND total_distance_traveled = '${total_distance_traveled}' `
+        }
+    }
+    
+    if(flight_id != "" && flight_id !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `flight_id = '${flight_id}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND flight_id = '${flight_id}' `
+        }
+    }
+    if(scheduled_departure_time != "" && scheduled_departure_time !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `DATE(scheduled_departure_time) = TO_DATE('${scheduled_departure_time}', 'MM/DD') `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND schedule_departure_time = TO_DATE('${scheduled_departure_time}', 'MM/DD ' `
+        }
+    }
+    if(scheduled_arrival_time != "" && scheduled_arrival_time !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `DATE(scheduled_arrival_time) = TO_DATE('${scheduled_arrival_time}', 'MM/DD ') `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND DATE(scheduled_arrival_time) = TO_DATE('${scheduled_arrival_time}', 'MM/DD ' `
+        }
+    }
+    if(departure_airport_code != "" && departure_airport_code !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `departure_airport_code = '${departure_airport_code}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND departure_airport_code = '${departure_airport_code}' `
+        }
+    }
+    if(arrival_airport_code != "" && arrival_airport_code !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `aarrival_airport_code = '${arrival_airport_code}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND arrival_airport_code = '${arrival_airport_code}' `
+        }
+    }
+    if(status != "" && status !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `status = '${status}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND status = '${status}' `
+        }
+    }
+    if(departure_gate != "" && departure_gate !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `departure_gate = '${departure_gate}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND departure_gate = '${departure_gate}' `
+        }
+    }
+    if(baggage_claim != "" && baggage_claim !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `baggage_claim = '${baggage_claim}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND baggage_claim = '${baggage_claim}' `
+        }
+    }
+    if(arrival_status != "" && arrival_status !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `arrival_status = '${arrival_status}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND arrival_status = '${arrival_status}' `
+        }
+    }
+    if(food_beverage != "" && food_beverage !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `food_beverage = '${food_beverage}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND food_beverage = '${food_beverage}' `
+        }
+    }
+    if(movie != "" && movie !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `movie = '${movie}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND movie = '${movie}' `
+        }
+    }
+    if(wifi_service != "" && wifi_service !=" ")
+    {
+        if(first)
+        {
+            query_string = query_string + `wifi_service = '${wifi_service}' `
+            first = false;
+        }
+
+        else
+        {
+            query_string = query_string + `AND wifi_service = '${wifi_service}' `
+        }
+    }
+
+    query_string = (query_string + ";")
+
+    console.log(query_string)
+    
+    const allDemos = await pool.query(query_string);
+    logTransactionFile(query_string)
+    res.status(200).json(allDemos.rows);
+  } catch(err){
+    console.log(err.message);
+    res.status(400).send('Bad');
+  }
+
+
+
+})
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{
