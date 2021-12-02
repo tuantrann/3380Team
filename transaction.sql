@@ -67,3 +67,136 @@ VALUES('12345', '24', 'on time', '', '', 200.14);
 INSERT INTO amenities(flight_id, wifi_service, food_beverage, movie)
 VALUES('12345', 'Y', 'Y', 'Y');
 COMMIT; 
+
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE flight_id = '123' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE flight_id = '123' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE flight_id = '123456' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE  aircraft_code = 'ZP7685' AND flight_id = '39648' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE DATE(scheduled_departure_time) = TO_DATE('09/01', 'MM/DD') ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE DATE(scheduled_departure_time) = TO_DATE('09/01', 'MM/DD') ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE DATE(scheduled_departure_time) = TO_DATE('09/26', 'MM/DD') ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE DATE(scheduled_departure_time) = TO_DATE('09/26', 'MM/DD') ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE TO_CHAR(scheduled_departure_time, 'MM/DD') = '10/15' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE TO_CHAR(scheduled_departure_time, 'MM/DD') = '10/15' ;
+SELECT flight_info.flight_id, a.city as departure_city, b.city as arrival_city, 
+a.airport_name AS departure_airport, b.airport_name AS arrival_airport, 
+TO_CHAR(scheduled_departure_time, 'MM/DD HH24:MI') AS departure_date, 
+TO_CHAR(scheduled_arrival_time, 'MM/DD HH24:MI') AS arrival_date,
+status, departure_gate, arrival_gate, baggage_claim
+FROM flight_info 
+INNER JOIN airport AS a 
+ON flight_info.departure_airport_code=a.airport_code
+INNER JOIN airport AS b
+ON flight_info.arrival_airport_code=b.airport_code
+
+ WHERE status = 'arrived' ;

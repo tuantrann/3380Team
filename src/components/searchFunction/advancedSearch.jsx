@@ -24,7 +24,7 @@ export const AdvancedSearchBox = ({setAdvancedSearch, setData, setDataType, setS
     const [arrival_gate, setArrivalGate] = useState('')
     const [baggage_claim, setBaggageClaim] = useState('')
     const [arrival_status, setArrivalStatus] = useState('')
-    const [food_beverage, setFoodBeverage] = useState()
+    const [food_beverage, setFoodBeverage] = useState('')
     const [movie, setMovie] = useState('')
     const [wifi_service, setWifiService] = useState('')
 

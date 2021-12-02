@@ -822,13 +822,13 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
     {
         if(first)
         {
-            query_string = query_string + `DATE(maintenance_history.date) = TO_DATE('${date}', 'MM/DD') `
+            query_string = query_string + `TO_CHAR(maintenance_history.date, 'MM/DD') = '${date}' `
             first = false;
         }
 
         else
         {
-            query_string = query_string + `AND DATE(maintenance_history.date) = TO_DATE('${date}', 'MM/DD' `
+            query_string = query_string + `AND TO_CHAR(maintenance_history.date, 'MM/DD') = '${date}' `
         }
     }
     if(model != "" && model !=" ")
@@ -861,13 +861,13 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
     {
         if(first)
         {
-            query_string = query_string + `DATE(refuel_date) = TO_DATE('${refuel_date}', 'MM/DD') `
+            query_string = query_string + `TO_CHAR(refuel_date, 'MM/DD') = '${refuel_date}' `
             first = false;
         }
 
         else
         {
-            query_string = query_string + `AND DATE(refuel_date) = TO_DATE('${refuel_date}', 'MM/DD' `
+            query_string = query_string + `AND TO_CHAR(refuel_date, 'MM/DD') = '${refuel_date}' `
         }
     }
     if(total_distance_traveled != "" && total_distance_traveled !=" ")
@@ -901,26 +901,26 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
     {
         if(first)
         {
-            query_string = query_string + `DATE(scheduled_departure_time) = TO_DATE('${scheduled_departure_time}', 'MM/DD') `
+            query_string = query_string + `TO_CHAR(scheduled_departure_time, 'MM/DD') = '${scheduled_departure_time}' `
             first = false;
         }
 
         else
         {
-            query_string = query_string + `AND schedule_departure_time = TO_DATE('${scheduled_departure_time}', 'MM/DD ' `
+            query_string = query_string + `AND TO_CHAR(schedule_departure_time, 'MM/DD') = '${scheduled_departure_time}' `
         }
     }
     if(scheduled_arrival_time != "" && scheduled_arrival_time !=" ")
     {
         if(first)
         {
-            query_string = query_string + `DATE(scheduled_arrival_time) = TO_DATE('${scheduled_arrival_time}', 'MM/DD ') `
+            query_string = query_string + `TO_CHAR(scheduled_arrival_time, 'MM/DD') = '${scheduled_arrival_time}' `
             first = false;
         }
 
         else
         {
-            query_string = query_string + `AND DATE(scheduled_arrival_time) = TO_DATE('${scheduled_arrival_time}', 'MM/DD ' `
+            query_string = query_string + `AND TO_CHAR(scheduled_arrival_time, 'MM/DD') = '${scheduled_arrival_time}' `
         }
     }
     if(departure_airport_code != "" && departure_airport_code !=" ")
