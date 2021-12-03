@@ -1056,6 +1056,22 @@ ON maintenance_history.aircraft_code=flight_info.aircraft_code
 
 })
 
+app.get('/getSQLData', (req, res) => {
+    try{
+        dataCombine = []
+
+        fs.readFile(queryFile, "utf-8", function(err, data){
+            fs.readFile(transactionFile, "utf-8", function(err, data1){
+                dataCombine.push(data)
+                dataCombine.push(data1)
+                res.json(dataCombine)
+            });
+        });
+    }
+    catch(err){
+        console.log(err)
+    }
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, ()=>{

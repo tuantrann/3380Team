@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Logo from './Logo';
 import { MenuLinks, MenuToggle, NavBarContainer } from './MenuItem';
+import { BiShow } from "react-icons/bi";
 
 export const NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false)

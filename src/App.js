@@ -17,6 +17,7 @@ import { AircraftDetail } from './pages/AircraftDetail';
 import { CrewDetail } from './pages/CrewDetail';
 import { TicketDetail } from './pages/TicketDetail';
 import { AddNewData } from './pages/addNewData';
+import { SQLPage } from './pages/sqlPage';
 // import { AirPort } from './pages/Airport';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Router>
         <Routes>
             <Route path="/" element={<HomePage />}/>
+            <Route path="/sql" element={<SQLPage />} />
             <Route path="/aircraftinfo" element={<AirCraftInfo />} />
             <Route path="/crewmember" element={<CrewMember />} />
             <Route path="/flightinfo" element={<FlightInfo/>} />

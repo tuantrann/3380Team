@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
 import {IoIosMenu, IoMdCloseCircleOutline} from 'react-icons/io';
+import { BiShow } from "react-icons/bi";
 
 const CloseIcon = () => (
   <svg width="24" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
@@ -61,6 +62,9 @@ export const MenuLinks = ({ isOpen }) => {
         direction={["column", "row", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
+        <MenuItem to="/sql">
+        <BiShow fontSize="2rem"></BiShow>
+        </MenuItem>
         <MenuItem to="/" children="Home">
         </MenuItem>
         <MenuItem  to="/flightinfo" children="Flight">

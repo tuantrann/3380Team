@@ -13,7 +13,7 @@ export const Ticket = (props) => {
     async function getData() {
         const response = await fetch("http://localhost:5000/allTicket")
         const jsonData = await response.json();
-        console.log(jsonData)
+        //console.log(jsonData)
         setTicketData(jsonData);
         setShowData(true);
     }

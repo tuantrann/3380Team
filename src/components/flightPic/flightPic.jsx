@@ -34,7 +34,14 @@ export const  FlightPic= ({home}) => {
                     fontSize="1rem"    
                 >
                 Team 5 COSC 3380 Prof. Ordonez
+                
+               
                 </Text>
+                <a href="https://www.youtube.com/watch?v=l6UZULK_6Ig">
+                    <Text>
+                     https://www.youtube.com/watch?v=l6UZULK_6Ig
+                     </Text>
+                </a>
                 <br/>
                 {home && (<Button
                     borderRadius="5px"
